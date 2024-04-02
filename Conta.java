@@ -1,9 +1,8 @@
 
-
 public class Conta
 {
   protected String nome, numeroConta;
-  protected double saldo, limite;
+  protected double saldo, limite, limiteEsp;
   
   public String getNome()
   {
@@ -37,13 +36,20 @@ public class Conta
   {
       this.limite=a;
   }
+   public double getLimiteEsp()
+  {
+      return limiteEsp;
+  }
+  public void setLimiteEsp(double a)
+  {
+      this.limiteEsp=a;
+  }
   public void retornaNome (String x)
   {
 	if (x == numeroConta)
-	  {
+	{
 		System.out.println ("Nome: " + getNome());
-	  }
-
+	}
 	else
 	    System.out.println ("Conta nao encontrada");
   }
@@ -54,6 +60,10 @@ public class Conta
   public void obterNumeroConta ()
   {
 	System.out.println ("Número da conta " + getNumero());
+  }
+  public void obterLimiteEsp()
+  {
+      System.out.println ("Limite especial R$" + getLimiteEsp());
   }
   public void alterarLimite(double limite)
   {
@@ -69,8 +79,8 @@ public class Conta
         }   
         else
             System.out.println("Transferência não realizada.");
-	
   }
+  
   public boolean debitarValor (double x)
   {
     if((x<=limite) && (x <= saldo))
@@ -88,16 +98,38 @@ public class Conta
      return false;
          
   }
+  
+  public boolean debitarValor2 (double x)
+  {
+    if((x<=limite) && (x <= (saldo+limiteEsp)))
+    {
+        if(x<=saldo)
+        {
+    	    saldo-= x;
+            System.out.println("Debitado");
+            return true;
+        }
+        else
+            limiteEsp-= x-saldo
+            saldo=0;
+            System.out.println("Debitado");
+            return true;
+    }
+     System.out.println("Limite excedido");
+     return false;
+         
+  }
   public void creditarValor (double x)
   {
 	this.saldo += x;
   }
-  public void inserirDados (String nome, String numero, double saldo, double limite)
+  public void inserirDados (String nome, String numero, double saldo, double limite, double limiteEsp)
   {
 	this.nome = nome;
 	this.numeroConta = numero;
 	this.saldo = saldo;
 	this.limite = limite;
+	this.limiteEsp = limiteEsp;
   }
   public void exibirDados ()
   {
@@ -106,17 +138,17 @@ public class Conta
 	System.out.println ("Nome: " + getNome());
 	System.out.println ("Saldo: R$ " + getSaldo());
 	System.out.println ("Limite: R$ " + getLimite());
+	System.out.println ("Limite expecial: R$ " + getLimiteEsp());
   }
 
   public static void main (String[]args)
   {
-	
 
 	Conta conta1 = new Conta ();
 	Conta conta2 = new Conta ();
 
-	conta1.inserirDados ("Willams", "123", 2000, 1500);
-	conta2.inserirDados ("Jessica", "456", 5000, 4500);
+	conta1.inserirDados ("Willams", "123", 2000, 1500, 1000);
+	conta2.inserirDados ("Jessica", "456", 5000, 4500,2000);
 	conta1.transferir(conta2, 1000);
 
 	//  conta1.retornaNome("123");
