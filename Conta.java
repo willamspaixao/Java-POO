@@ -81,6 +81,17 @@ public class Conta
             System.out.println("Transferência não realizada.");
   }
   
+   public void transferir2(Conta b, double val)
+  {
+	    if(debitarValor2(val))
+        {
+            //a.debitarValor(val);
+            b.creditarValor (val);
+            System.out.println("Transferẽncia efetuada.");
+        }   
+        else
+            System.out.println("Transferência não realizada.");
+  }
   public boolean debitarValor (double x)
   {
     if((x<=limite) && (x <= saldo))
@@ -110,7 +121,7 @@ public class Conta
             return true;
         }
         else
-            limiteEsp-= x-saldo
+            limiteEsp-= x-saldo;
             saldo=0;
             System.out.println("Debitado");
             return true;
@@ -147,10 +158,10 @@ public class Conta
 	Conta conta1 = new Conta ();
 	Conta conta2 = new Conta ();
 
-	conta1.inserirDados ("Willams", "123", 2000, 1500, 1000);
+	conta1.inserirDados ("Willams", "123", 1500, 3000, 1000);
 	conta2.inserirDados ("Jessica", "456", 5000, 4500,2000);
-	conta1.transferir(conta2, 1000);
-
+	//conta1.transferir(conta2, 1000);
+    conta1.transferir2(conta2, 2700);
 	//  conta1.retornaNome("123");
 	conta1.exibirDados ();
 	conta2.exibirDados ();
