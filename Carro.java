@@ -1,25 +1,40 @@
 public class Carro {
-  int anoFabricacao;
-  String cor, modelo;
-  double velocidade;
+  private int anoFabricacao;
+  private String cor, modelo;
+  private double velocidade;
 
-  void registraAno(int anoNovo)
-  {
-    anoFabricacao= anoNovo;
-  }
 
-  void registraCor(String a)
+  public int getAnoFabricacao()
   {
-    cor= a;
+    return this.anoFabricacao;
   }
-
-  void registraModelo(String a)
+  public void setAnoFabricacao(int anoFabricacao)
   {
-    modelo= a;
+    this.anoFabricacao= anoFabricacao;
   }
-  void registraVelocidade(double a)
+  public String geCor()
   {
-    velocidade= a;
+    return this.cor;
+  }
+  public void setCor(String cor)
+  {
+    this.cor= cor;
+  }
+  public String getModelo()
+  {
+    return this.modelo;
+  }
+  public void setModelo(String modelo)
+  {
+    this.modelo= modelo;
+  }
+  public double getVelocidade()
+  {
+    return this.velocidade;
+  }
+  public void setVelocidade(double velocidade)
+  {
+    this.velocidade= velocidade;
   }
 
   void ligar()
@@ -40,22 +55,18 @@ public class Carro {
   }
   void mostrarDados()
   {
-    System.out.println("\nO carro "+cor+", "+modelo+", ano "+anoFabricacao+" está com velocidade de "+velocidade+" km/h.");
+    System.out.println("\nO carro "+geCor()+", "+getModelo()+", ano "+getAnoFabricacao()+" está com velocidade de "+getVelocidade()+" km/h.");
   }
   
   public static void main(String[] args) {
     
     Carro carro1 = new Carro();
-    carro1.registraAno(2004);
-    carro1.registraCor("branco");
-    carro1.registraModelo("Palio");
-    carro1.registraVelocidade(111);
-
-    
+    carro1.setAnoFabricacao(2004);
+    carro1.setCor("branco");
+    carro1.setModelo("Palio");
+    carro1.setVelocidade(111);
+   
     carro1.mostrarDados();
-
-    
-
   }
 
 }
