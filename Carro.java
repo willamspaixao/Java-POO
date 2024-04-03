@@ -1,33 +1,88 @@
-public class App {
-    public static void main(String[] args) throws Exception {
+public class Carro {
+  private int anoFabricacao;
+  private String cor, modelo;
+  private double velocidade;
+
+  public Carro()
+  {
+
+  }
+  public Carro(int anoFabricacao, String cor, String modelo,double velocidade)
+  {
+    this.anoFabricacao= anoFabricacao;
+    this.cor=cor;
+    this.modelo=modelo;
+    this.velocidade=velocidade;
+  }
+  
+  public int getAnoFabricacao()
+  {
+    return this.anoFabricacao;
+  }
+  public void setAnoFabricacao(int anoFabricacao)
+  {
+    this.anoFabricacao= anoFabricacao;
+  }
+
+
+  public String geCor()
+  {
+    return this.cor;
+  }
+  public void setCor(String cor)
+  {
+    this.cor= cor;
+  }
+
+  public String getModelo()
+  {
+    return this.modelo;
+  }
+  public void setModelo(String modelo)
+  {
+    this.modelo= modelo;
+  }
+  public double getVelocidade()
+  {
+    return this.velocidade;
+  }
+  public void setVelocidade(double velocidade)
+  {
+    this.velocidade= velocidade;
+  }
+
+  void ligar()
+  {
+    System.out.println("\nCarro ligado!");
+  }
+  void desligar()
+  {
+    System.out.println("\nCarro desligado!");
+  }
+  void acelerar()
+  {
+    System.out.println("\nCarro teve sua velocidade aumentada!");
+  }
+  void frear()
+  {
+    System.out.println("\nCarro teve sua velocidade reduzida!");
+  }
+  void mostrarDados()
+  {
+    System.out.println("\nO carro "+geCor()+", "+getModelo()+", ano "+getAnoFabricacao()+" está com velocidade de "+getVelocidade()+" km/h.");
+  }
+  
+  public static void main(String[] args) {
+    
     Carro carro1 = new Carro();
-    carro1.setAnoFabricacao(2024);
-    carro1.setCor("cinza");
-    carro1.setModelo("Jeep Renegade");
-    carro1.setVelocidade(110);
-    Carro carro2 = new Carro(2019,"branco","VW Virtus",145);
-    // carro1.ligar();
-    // carro1.desligar();
-    // carro1.acelerar();
-    // carro1.frear();
+   //carro1.setAnoFabricacao(2004);
+    //carro1.setCor("branco");
+    //carro1.setModelo("Palio");
+    //carro1.setVelocidade(111);
+   
     carro1.mostrarDados();
-    carro2.mostrarDados();
-    //System.out.println(carro1);
 
-   /* Conta conta1 = new Conta ();
-	Conta conta2 = new Conta ();
 
-	conta1.inserirDados ("Willams", "123", 1000, 1500);
-	conta2.inserirDados ("Jessica", "456", 5000, 4500);
-    
-    conta1.creditarValor(5000);
-    conta1.obterSaldo();
-    
-    conta1.alterarLimite(3000);
-    conta1.transferir(conta2, 2000);
-    
-    conta1.exibirDados();
-    conta2.exibirDados();*/
+  }
 
-    }
 }
