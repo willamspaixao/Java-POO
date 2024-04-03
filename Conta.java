@@ -3,7 +3,19 @@ public class Conta
 {
   protected String nome, numeroConta;
   protected double saldo, limite, limiteEsp;
-  
+
+ public Conta()
+ {
+	
+ }
+ public Conta(String nome, String numeroConta, double saldo, double limite, double limiteEsp)
+  {
+      this.nome=nome;
+      this.numeroConta=numeroConta;
+      this.saldo=saldo;
+      this.limite=limite;  
+      this.limiteEsp=limiteEsp;
+  }
   public String getNome()
   {
       return nome;
@@ -86,7 +98,14 @@ public class Conta
 	    if(debitarValor2(val))
         {
             //a.debitarValor(val);
-            b.creditarValor (val);
+            b.creditarValor (val); public Conta(String nome, String numeroConta, double saldo, double limite, double limiteEsp)
+  {
+      this.nome=nome;
+      this.numeroConta=numeroConta;
+      this.saldo=saldo;
+      this.limite=limite;  
+      this.limiteEsp=limiteEsp;
+  }
             System.out.println("Transferẽncia efetuada.");
         }   
         else
@@ -155,13 +174,11 @@ public class Conta
   public static void main (String[]args)
   {
 
-	Conta conta1 = new Conta ();
+	Conta conta1 = new Conta ("Willams", "123", 1500, 3000, 1000);
 	Conta conta2 = new Conta ();
 
-	conta1.inserirDados ("Willams", "123", 1500, 3000, 1000);
 	conta2.inserirDados ("Jessica", "456", 5000, 4500,2000);
-	//conta1.transferir(conta2, 1000);
-    conta1.transferir2(conta2, 2700);
+	conta1.transferir2(conta2, 2700);
 	//  conta1.retornaNome("123");
 	conta1.exibirDados ();
 	conta2.exibirDados ();
